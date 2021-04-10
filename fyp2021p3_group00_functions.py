@@ -34,11 +34,10 @@ def measure_area_perimeter(mask):
     area = np.sum(mask)
 
     # Measure perimeter: first find which pixels belong to the perimeter.
-    struct_el = morphology.disk(10)
+    struct_el = morphology.disk(1)
     mask_eroded = morphology.binary_erosion(mask, struct_el)
     image_perimeter = mask - mask_eroded
     
-    plt.imshow(image_perimeter, cmap = 'gray')
     # Now we have the perimeter image, the sum of all white pixels in it
     perimeter = np.sum(image_perimeter)
 
