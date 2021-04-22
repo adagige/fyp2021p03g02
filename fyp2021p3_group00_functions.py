@@ -34,7 +34,7 @@ def measure_area_perimeter(mask):
     area = np.sum(mask)
 
     # Measure perimeter: first find which pixels belong to the perimeter.
-    struct_el = morphology.disk(10)
+    struct_el = morphology.disk(5)
     mask_eroded = morphology.binary_erosion(mask, struct_el)
     image_perimeter = mask - mask_eroded
     
